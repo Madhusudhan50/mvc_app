@@ -1,4 +1,4 @@
-package com.mvc.Model;
+package com.mvc.model;
 
 public class StudentResponseModel {
 }
