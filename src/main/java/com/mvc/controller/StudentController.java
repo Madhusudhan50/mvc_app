@@ -11,13 +11,13 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 @RestController
-public class DemoController {
+public class StudentController {
 
     @Autowired
     private StudentService studentService;
 
     @GetMapping("/all")
-    public  List<StudentResponseModel> getAllStudentDetails() throws StudentNotFoundException, InvocationTargetException, IllegalAccessException {
+    public  List<StudentResponseModel> getAllStudentDetails() throws StudentNotFoundException {
         return  studentService.getAllStudents();
     }
 

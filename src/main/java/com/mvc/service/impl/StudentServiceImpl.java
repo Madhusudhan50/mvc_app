@@ -2,6 +2,7 @@ package com.mvc.service.impl;
 
 import com.mvc.entity.Student;
 import com.mvc.exception.ExceptionController;
+import com.mvc.exception.errors.StudentNotFoundException;
 import com.mvc.model.StudentResponseModel;
 import com.mvc.repository.StudentRepository;
 import com.mvc.service.StudentService;
@@ -23,17 +24,21 @@ public class StudentServiceImpl implements StudentService {
     private ExceptionController exceptionController;
 
     @Override
-    public List<StudentResponseModel> getAllStudents() throws InvocationTargetException, IllegalAccessException {
+    public List<StudentResponseModel> getAllStudents() throws StudentNotFoundException {
 
         List<Student> student = studentRepository.findAll();
-        List<StudentResponseModel> models = new ArrayList<>();
 
-        StudentResponseModel model = null;
-        for (Student s : student) {
-            model = new StudentResponseModel();
-            BeanUtils.copyProperties(s, model);
+        if(student.isEmpty() || student==null){
+            throw new StudentNotFoundException("Records not found");
         }
-        models.add(model);
+        List<StudentResponseModel> models = new ArrayList<>();
+        StudentResponseModel studentModel = null;
+
+        for (Student studentEntity : student) {
+            studentModel = new StudentResponseModel();
+            BeanUtils.copyProperties(studentEntity, studentModel);
+        }
+        models.add(studentModel);
         return models;
     }
 }
