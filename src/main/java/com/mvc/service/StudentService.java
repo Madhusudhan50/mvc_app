@@ -1,10 +1,12 @@
 package com.mvc.service;
 
 
-import com.mvc.Entity.Student;
+import com.mvc.model.StudentResponseModel;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public interface StudentService {
-    List<Student> getAllStudents();
+
+    List<StudentResponseModel> getAllStudents() throws InvocationTargetException, IllegalAccessException;
 }
