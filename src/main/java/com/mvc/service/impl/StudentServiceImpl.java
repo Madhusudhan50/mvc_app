@@ -1,9 +1,7 @@
 package com.mvc.service.impl;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
-import com.mvc.Entity.Student;
+import com.mvc.entity.Student;
 import com.mvc.exception.ExceptionController;
-import com.mvc.exception.errors.StudentNotFoundException;
 import com.mvc.model.StudentResponseModel;
 import com.mvc.repository.StudentRepository;
 import com.mvc.service.StudentService;
@@ -14,7 +12,6 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class StudentServiceImpl implements StudentService {

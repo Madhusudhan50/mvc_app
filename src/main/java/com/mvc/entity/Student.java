@@ -1,4 +1,4 @@
-package com.mvc.Entity;
+package com.mvc.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

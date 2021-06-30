@@ -1,6 +1,6 @@
 package com.mvc.repository;
 
-import com.mvc.Entity.Student;
+import com.mvc.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
