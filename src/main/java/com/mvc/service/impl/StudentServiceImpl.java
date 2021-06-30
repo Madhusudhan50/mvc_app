@@ -1,5 +1,6 @@
 package com.mvc.service.impl;
 
+import com.mvc.constants.ErrorConstants;
 import com.mvc.entity.Student;
 import com.mvc.exception.ExceptionController;
 import com.mvc.exception.errors.StudentNotFoundException;
@@ -10,7 +11,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +29,7 @@ public class StudentServiceImpl implements StudentService {
         List<Student> student = studentRepository.findAll();
 
         if(student.isEmpty() || student==null){
-            throw new StudentNotFoundException("Records not found");
+            throw new StudentNotFoundException(ErrorConstants.RECORD_NOT_FOUNDS);
         }
         List<StudentResponseModel> models = new ArrayList<>();
         StudentResponseModel studentModel = null;
